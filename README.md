@@ -14,6 +14,7 @@ Subtype N: Any
 
 Fasta defline:
 >{strain}|{host}|{accession}|{year}-{month}-{day}|{country}
+
 be sure there is a carrot ">" at the front
 
 Once you have that downloaded, it should be added to the directory and named h5nX_ha.fa (or any other name as long as you change the name of the input file in fasta_formatter.py, clade_annotater.py and mutation_finder.py)
