@@ -1,6 +1,6 @@
 This is the documentation which is a work-in-progress for the Avian-flu Clademaker project
 
-This is a pipeline where we are taking a fast file from a source such as GenBank and using it to define nodes that branch off into a single clade.
+This is a pipeline where we are taking a fasta file from a source such as GenBank and using it to define nodes that branch off into a single clade.
 
 The way the pipeline works is the following:
 
