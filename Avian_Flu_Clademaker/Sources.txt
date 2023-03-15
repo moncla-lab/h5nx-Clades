@@ -1,0 +1,16 @@
+Sources:
+WILEY_1 - https://onlinelibrary.wiley.com/doi/10.1111/j.1750-2659.2011.00298.x -- ***fasta file present***
+Clade_Relationships - https://wwwnc.cdc.gov/eid/article/14/7/07-1681_article#r1 -- no fasta file
+Sublineage assessment - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1413830/ -- no fasta file
+
+Genome Analysis linking African and European H5N1 viruses (GALA) - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2432181/#SD5 -- ***no fasta file, but PDF with strain names***
+
+Unified nomenclature system (UNS) - https://wwwnc.cdc.gov/eid/article/14/7/07-1681_article -- no fasta file
+
+Progress toward unified nomenclature (PUNS) - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4634523/ -- no fasta file
+
+LABEL documentation - https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0086921#pone.0086921-BenHur1
+
+Isolation of highly pathogenic... (IHP) - https://www.frontiersin.org/articles/10.3389/fmicb.2019.01411/full -- ***tables may be useful, have not spent enough time looking***
+
+Experimental infection of clade... in dogs (EICD) - https://onlinelibrary.wiley.com/doi/10.1111/tbed.12731 -- no fasta file
