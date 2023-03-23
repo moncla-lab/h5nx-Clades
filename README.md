@@ -1,8 +1,8 @@
 Avian flu clademaker README
 ######################################################################
 The order in which the files should be run is the following:
-------- BEFORE NEXTSTRAIN -------
-fasta_formatter.py
+------- BEFORE NEXTSTRAIN -------\n
+fasta_formatter.py\n
 Run through LABEL (if still using LABEL) otherwise once you have some other txt of clades
 clade_annotator.py
 2.3.4.4_annotator.py
