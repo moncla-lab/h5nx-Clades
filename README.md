@@ -1,39 +1,49 @@
-This is the documentation which is a work-in-progress for the Avian-flu Clademaker project
+Avian flu clademaker README
+######################################################################
+The order in which the files should be run is the following:
+------- BEFORE NEXTSTRAIN -------
+fasta_formatter.py
+Run through LABEL (if still using LABEL) otherwise once you have some other txt of clades
+clade_annotator.py
+2.3.4.4_annotator.py
+------- AFTER NEXTSTRAIN -------
+mutation_characterization.py
+######################################################################
 
-This is a pipeline where we are taking a fasta file from a source such as GenBank and using it to define nodes that branch off into a single clade.
+NOTE: Mutation_Finder.py is important but is NOT meant to run on its own. It is pretty much only meant to run from Mutation_Characterization.py
 
-The way the pipeline works is the following:
+The first thing that needs to be done is getting a fasta file with some data. The fasta_formatter.py is designed for data from GenBank, but, there is some code already written in reference_tree_maker.py that should reformatt the LABEL guide tree
 
-To start you will need a fasta file from GenBank where the formatting is the following:
-The search set should be the followingL
+##### The reference_tree_maker.py file is not commented at this moment, but largely is older code that is not used, it is just an example of string parsing for the LABEL guide tree #####
 
-Host: Any
-Protein: HA
-Subtype H: 5
-Subtype N: Any
+Once you have a fasta, run fasta_formatter.py, which should output a file (named whatever you like) in 
+/Output
 
-Fasta defline:
->{strain}|{host}|{accession}|{year}-{month}-{day}|{country}
+Once you have that output file, go ahead and run it through LABEL or augur clades,
+ whatever way you want to get a text file with clade assignments. 
+ Next, run it through clade_annotator.py. IMPORTANT NOTE -- clade_annotator.py is made specifically 
+ for LABEL assignments and will need to be either changed or completely re-written if another assignment tool is used.
 
-be sure there is a carrot ">" at the front
+clade_annotator.py will output a fasta that has your strains and sequence data with clades annotated at the end in the format metadata|clade
 
-Once you have that downloaded, it should be added to the directory and named h5nX_ha.fa (or any other name as long as you change the name of the input file in fasta_formatter.py, clade_annotater.py and mutation_finder.py)
+From here, move your output file to /Data and then run 2.3.4.4 annotator if you have additional clades you want to add. 
+There is already a 2.3.4.4 guide file in /Data as the baseline package for this code, 
+BUT, if there are other clades you want to add it is pretty simple to change that file, 
+just re-write the string parsing to more closely align with whatever file you have rather than the guide file that is already in there.
 
-Now run fasta_formatter.py It should output a file named h5n1_ha.fasta
-***It will not make a new file if there is already a file with this name***
+At this point you should take the fasta file you've made through nextrstrain to produce a JSON file, 
+which is required for the remainder of the code.
 
-This will give you a file that is usable with nextstrain and with the clade_annotater.py
-Next you should run LABEL on your file, and grab the list of clades it outputs as a file, naming it: h5n1_ha_clades_final.txt **or anything else as long as you rename it in clade_annotater.py
+The most important thing about this code is that the mutation_finder code is written very explicitly for
+each JSON file, and will need changes based on what your JSON file looks like. The biggest problem
+currently is that there is no automatic way to remove unassigned tips from the mutation finder code,
+instead, strains must be automatically added to the exclude list that is initialized at the start of the file.
 
+### This would be a great thing to work on in the future, as the larger the fasta file the more likely it is nextstrain is going to missassign tips ###
 
-Run the clade_annotater.py with your newly generated file. This will give you an output file that is a fasta file similar to the one you initially downloaded, but which contains the clades for each strain added to the end of its metadata lines
+The mutation finder, written as is, only needs to be run (with the input and output paths changed for your specific files) and will give you an output tsv of your clades with their unique mutations.
 
-From here you can run the fasta with Nextstrain to generate a tree which should have the option to color by clade. ***THIS IS IMPORTANT***
-Without the ability to sort by clade the mutation_finder.py file will not work
+All of this code can be changed based on your input fasta, the output you want, your JSON file, etc. 
+it is completely changeable and will require some personalization based on your input data.
 
-Once you have this tree, grab the JSON file and drag into the same directory as mutation_finder.py
-Run Mutation_finder.py
-
-This will print out a list of your unique mutations for each clade as well as the defining node for each clade. STILL WORKING ON AN OUTPUT FILE FOR THIS
-
-
+Importantly, .py files take inputs from /Data and output files into /Output
