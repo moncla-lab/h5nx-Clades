@@ -1,49 +1,58 @@
-Avian flu clademaker README
-######################################################################
-The order in which the files should be run is the following:
-------- BEFORE NEXTSTRAIN -------
-fasta_formatter.py
-Run through LABEL (if still using LABEL) otherwise once you have some other txt of clades
-clade_annotator.py
-2.3.4.4_annotator.py
-------- AFTER NEXTSTRAIN -------
-mutation_characterization.py
-######################################################################
+# nextstrain.org/flu/avian
 
-NOTE: Mutation_Finder.py is important but is NOT meant to run on its own. It is pretty much only meant to run from Mutation_Characterization.py
+This is the Nextstrain build for avian influenza subtypes A/H5N1, A/H5NX, A/H7N9, and A/H9N2.
+The most up-to-date builds of avian influenza can be found [on nextstrain.org](https://nextstrain.org/flu/avian).
+Please see [nextstrain.org/docs](https://nextstrain.org/docs) for details about augur and pathogen builds.
 
-The first thing that needs to be done is getting a fasta file with some data. The fasta_formatter.py is designed for data from GenBank, but, there is some code already written in reference_tree_maker.py that should reformatt the LABEL guide tree
+# Building
 
-##### The reference_tree_maker.py file is not commented at this moment, but largely is older code that is not used, it is just an example of string parsing for the LABEL guide tree #####
+All 32 builds (4 subtypes x 8 segments) can be build by running `snakemake`. For rapid AWS rebuild run as:
 
-Once you have a fasta, run fasta_formatter.py, which should output a file (named whatever you like) in 
-/Output
+    nextstrain build --aws-batch --aws-batch-cpus 16 --aws-batch-memory 28800 . --jobs 16
 
-Once you have that output file, go ahead and run it through LABEL or augur clades,
- whatever way you want to get a text file with clade assignments. 
- Next, run it through clade_annotator.py. IMPORTANT NOTE -- clade_annotator.py is made specifically 
- for LABEL assignments and will need to be either changed or completely re-written if another assignment tool is used.
+Please see [nextstrain.org/docs](https://nextstrain.org/docs) for details about augur and pathogen builds.
 
-clade_annotator.py will output a fasta that has your strains and sequence data with clades annotated at the end in the format metadata|clade
+# Creating a custom build 
+The easiest way to generate your own, custom avian-flu build is to use the  quickstart-build as a starting template. Simply clone the quickstart-build, run with the example data, and edit the Snakefile to customize. This build includes example data and a simplified, heavily annotated Snakefile that goes over the structure of Snakefiles and annotates rules and inputs/outputs that can be modified. This build, with it's own readme, is available [here](https://github.com/nextstrain/avian-flu/tree/master/quickstart-build).
 
-From here, move your output file to /Data and then run 2.3.4.4 annotator if you have additional clades you want to add. 
-There is already a 2.3.4.4 guide file in /Data as the baseline package for this code, 
-BUT, if there are other clades you want to add it is pretty simple to change that file, 
-just re-write the string parsing to more closely align with whatever file you have rather than the guide file that is already in there.
+## Features unique to avian flu builds
 
-At this point you should take the fasta file you've made through nextrstrain to produce a JSON file, 
-which is required for the remainder of the code.
+### cleavage site annotations 
+Influenza virus HA is translated as a single peptide (HA0) that is cleaved to form the mature, functional form (HA1 and HA2). In all human strains and many avian strains, the cleavage site is composed of a single, basic amino acid residue. However, some avian influenza subtypes, particularly H5s, have acquired additional basic residues immediately preceding the HA cleavage site. In some cases, this results in addition of a furin cleavage motif, allowing HA to be cleaved by furin, which is ubiquitously expressed, and allows for viral replication across a range of tissues. The addition of this "polybasic cleavage site" is one of the prime determinants of avian influenza virulence. In these builds, we have annotated whether strains contain a furin cleavage motif, defined here as the sequence `R-X-K/R-R` immediately preceding the start of HA2, where `X` can be any amino acid. We have also added a color by for the cleavage site sequence, which we define here as the 4 bases preceding HA2. 
 
-The most important thing about this code is that the mutation_finder code is written very explicitly for
-each JSON file, and will need changes based on what your JSON file looks like. The biggest problem
-currently is that there is no automatic way to remove unassigned tips from the mutation finder code,
-instead, strains must be automatically added to the exclude list that is initialized at the start of the file.
+### clade labeling
+H5 viruses are classified into clades, which are currently viewable as a color by on [nextstrain.org](https://nextstrain.org/flu/avian/h5n1/ha?c=h5_label_clade). Because clade annotations are not available in all public databases, we annotate sequences with their most likely clade using a tool developed by Samuel S. Shepard at CDC called [LABEL](https://wonder.cdc.gov/amd/flu/label/). The assigned clade for each H5N1 or H5Nx sequence are available as public tsvs [here](https://github.com/nextstrain/avian-flu/tree/master/clade-labeling).
 
-### This would be a great thing to work on in the future, as the larger the fasta file the more likely it is nextstrain is going to missassign tips ###
+To update the `clades.tsv` file with clade annotations for new sequences, run: 
 
-The mutation finder, written as is, only needs to be run (with the input and output paths changed for your specific files) and will give you an output tsv of your clades with their unique mutations.
+`snakemake -s Snakefile.clades -p --cores 1`
 
-All of this code can be changed based on your input fasta, the output you want, your JSON file, etc. 
-it is completely changeable and will require some personalization based on your input data.
+To run the builds on without updating the clades file, run: 
 
-Importantly, .py files take inputs from /Data and output files into /Output
+`snakemake -p --cores 1`
+
+To string these together and update the `clades.tsv` file for new sequences and then run the builds: 
+
+`snakemake -s Snakefile.clades -p --cores 1 && snakemake -p --cores 1`
+
+## To modify this build to work with your own data
+Although the simplest way to generate a custom build is via the quickstart build, you are welcome to clone this repo and use it as a starting point for running your own, local builds if you'd like. The [Nextstrain docs](https://docs.nextstrain.org/en/latest/index.html) are a fantastic resource for getting started with the Nextstrain pipeline, and include some [great tutorials](https://docs.nextstrain.org/en/latest/install.html) to get you started. This build is slightly more complicated than other builds, and has a few custom functions in it to accommodate all the features on [nextstrain.org](https://nextstrain.org/flu/avian), and makes use of wildcards for both subtypes and gene segments. If you'd like to adapt this full, non-simplified pipeline here to your own data (which you may want to do if you also want to annotate clades), you would need to make a few changes and additions:
+
+#### 1. fauna / RethinkDB credentials
+This build starts by pulling sequences from our live [fauna](https://github.com/nextstrain/fauna) database (a RethinkDB
+instance). This requires environment variables `RETHINK_HOST` and `RETHINK_AUTH_KEY` to be
+set.
+
+If you don't have access to our database, you can run the build using the example data
+provided in this repository. Before running the build, copy the example sequences into the
+`data/` directory like so:
+
+```
+mkdir data/
+cp example_data/* data/
+```
+
+Then run the the build. If you'd like to consistently run your own data, then you can place your fasta file in `data`. Alternatively, you can alter the `Snakefile` to remove references to our database and add paths to your own files. To do this, remove `rule download`, add paths to your input data (sequences and metadata) in `rule files`, and add those paths as the input to `rule parse`. 
+
+#### 2. clade labeling 
+If you'd like to run clade labeling, you will need to install [LABEL](https://wonder.cdc.gov/amd/flu/label/) yourself. This pipeline assumes that LABEL is located in `avian-flu/flu-amd/`, and should work if you install it into the `avian-flu` directory. If you do not need to label clades, then you can delete `rule add_h5_clade`, the function `metadata_by_wildcards`. You will need to make sure that all references to `metadata` in the pipeline are referencing `metadata_subtype_segment`, not `metadata-with-clade_subtype_segment`, which is generated by `rule add_h5_clade` and adds a new column to the metadata file with clade information. 
