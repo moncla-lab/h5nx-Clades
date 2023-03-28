@@ -1,9 +1,8 @@
 import re
 
-Annotated_Clades = "Data/h5nx_ha_clades_final_unaligned.txt"
-Sequences_Without_Clades = "Data/h5nx_ha_formatted.fasta"
-metadata_path = "Data/h5nx_ha_formatted.fasta"
-Output_File_Path = "Output/h5FullNonMafftGsGDGroupedClock4_ha.fasta"
+Annotated_Clades = #this needs to be whatever your LABEL output.txt is
+Sequences_Without_Clades = "Data/LABEL_Guide.fasta"
+Output_File_Path = "Output/Label-Guide-Annotated_ha.fasta"
 
 """
 In this file, we are going to add our clades onto our metadata from our fasta file. We will
@@ -25,15 +24,6 @@ with open(Annotated_Clades, "r") as Clades: #here we're grabbing the txt file wi
                     
                 elif item != "":
                     clades_dict[strain] = item.strip() #here we're going to add all the lines which are not just spaces (So only our clade) to our dict
-"""
-with open(metadata_path, "r") as metadata:
-    for line in metadata:
-        line = line.strip()
-        if line and line[0] == ">":
-            strain = line.split("|")
-            strainName = strain[0]
-            metadata_dict[strainName] = line
-"""
 
 with open(Sequences_Without_Clades, "r") as Sequences: #opening our fasta without sequences
     for Line in Sequences: #for each line
