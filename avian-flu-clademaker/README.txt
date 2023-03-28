@@ -2,12 +2,12 @@ Avian flu clademaker README
 ######################################################################
 The order in which the files should be run is the following:
 ------- BEFORE NEXTSTRAIN -------
-fasta_formatter.py
+unformatted fasta file --> fasta_formatter.py --> formatted fasta file
 Run through LABEL (if still using LABEL) otherwise once you have some other txt of clades
-clade_annotator.py
-2.3.4.4_annotator.py
+formatted fasta file + clade.txt --> clade_annotator.py --> fasta file with clades
+fasta file with clades --> 2.3.4.4_annotator.py --> fasta file with 2.3.4.4 clades
 ------- AFTER NEXTSTRAIN -------
-mutation_characterization.py
+JSON --> mutation_characterization.py --> mutations.txt
 ######################################################################
 
 NOTE: Mutation_Finder.py is important but is NOT meant to run on its own. It is pretty much only meant to run from Mutation_Characterization.py
