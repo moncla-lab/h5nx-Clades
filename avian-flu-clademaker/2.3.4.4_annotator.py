@@ -7,9 +7,9 @@ import baltic as bt
 import re
 
 input_file_path = "Data/2.3.4.4-0906.fas"
-output_path = "Output/2.3.4.4_Guide_Tree.fasta"
-full_tree_path = "Data/FastaGuide_ha.fasta"
-compiled_output_path = "Output/h5nxLABEL2-3-4-4Anottated_ha.fasta"
+full_tree_path = "Data/Label-Guide-Annotated_ha.fasta"
+#compiled_output_path = "Output/h5nxLABEL2-3-4-4Anottated_ha.fasta"
+output_path = "Output/LABEL-Guide-2.3.4.4_ha.fasta"
 
 #opening our input file which contains the clades we want to add
 with open(input_file_path, "r") as guide:
