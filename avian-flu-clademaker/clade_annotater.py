@@ -1,7 +1,7 @@
 import re
 
 Annotated_Clades = #this needs to be whatever your LABEL output.txt is
-Sequences_Without_Clades = "Data/LABEL_Guide.fasta"
+Sequences_Without_Clades = "Data/LABEL_Guide_Unformatted.fasta"
 Output_File_Path = "Output/Label-Guide-Annotated_ha.fasta"
 
 """
