@@ -1,0 +1,3 @@
+# README 
+
+This repository contains code for developing a method for defining and assigning clades for H5 viruses. The goal of this project is to develop a methodology similar to that employed for SARS-CoV-2 and seasonal influenza viruses, where clades are defined by identifying monophyletic clusters of viruses on the tree that share a set of clade-defining mutations. The goal is to generate a set of mutations that can be used to define clades, use those to assign clades, and develop a dataset that can be incorporated into NextClade. 
