@@ -8,22 +8,34 @@ Data should be kept in the Data file and all files will be output to the Output 
 
 import re
 import baltic as bt
+import argparse
+parser = argparse.ArgumentParser()
 
 import Mutation_Finder as mf
 
-Input_Tree_Path = "Data/flu_avian_h5nxLABEL2-3-4-4Anottated_ha.json"
+parser.add_argument('--input_tree', type=str, help='path to input tree in JSON format')
+parser.add_argument('--output_file', type=str, help='name and path to output file')
+parser.add_argument('--exclude_file', type=str, help='file including strains to exclude')
+parser.add_argument('--metadata_clade_column_name', type=str, help='the title of the metadata column containing the clade assignment')
+
+args = parser.parse_args()
+Input_Tree_Path = args.input_tree
+output_file_path = args.output_file
+exclude_file = args.exclude_file
+clade_column_name = args.metadata_clade_column_name
+
+
 mytree, mymeta = bt.loadJSON(Input_Tree_Path)
-output_file_path = "Output/h5nX_Mutations.txt"
 exclude_list = ['A/breeder_duck/Korea/H158/2014'] #this strain is behaving weirdly in our tree, so this code is just going to have us ignore it
                                                 #if any other strains are acting weird, just ad them here in quotations and comma separated
-parent_list = ['2.1.3.2', '1', '1.1', 
-'2.2', '2.2.1', '2.2.1.1', '2.3.2.1', '2.3.4', '7', 
+parent_list = ['2.1.3.2', '1', '1.1',
+'2.2', '2.2.1', '2.2.1.1', '2.3.2.1', '2.3.4', '7',
 '2.2.2', '2.3.2', '6', '2.1.3.1', '2.1.2', '2.3.4.4']
 
 """
 This dictionary is important because when we are outputting our tsv file we need our clades to be able to inherit from other clades
 so this dictionary allows us to quickly output which clades descend from what without having to manually write it every time. If you find
-that your clades are related differently, simply change this code. The format is child:parent, where the parent is the clade which our child 
+that your clades are related differently, simply change this code. The format is child:parent, where the parent is the clade which our child
 inherits from
 """
 relationships = {
@@ -55,6 +67,10 @@ relationships = {
     '2.3.2.1a': '2.3.2.1',
     '2.3.2.1b': '2.3.2.1',
     '2.3.2.1c': '2.3.2.1',
+    '2.3.2.1d': '2.3.2.1',
+    '2.3.2.1e': '2.3.2.1',
+    '2.3.2.1f': '2.3.2.1',
+    '2.3.2.1g': '2.3.2.1',
     '2.3.3': None,
     '2.3.4': None,
     '2.3.4.1': '2.3.4',
@@ -80,7 +96,7 @@ relationships = {
     '8': None
 }
 
- 
+
 """
 This function is going to run through our tree and get nodes that define our clades based on the following criteria:
 1. Nodes must have leaves that are only of a single clade, or of a single clade and its children
@@ -112,7 +128,7 @@ def find_nodes(NC, tree, parents):
                 if clade in output.keys(): #if clade is already in our output
                     if node_length[output[clade]] < node_length[node]: #if our node is longer than the node we already have
                         output[clade] = node #we're going to replace our node in our output dictionary
-                
+
                 else:
                     output[clade] = node #otherwise, if we don't already have our clade in our output we're going to add it with our current node
 
@@ -148,14 +164,14 @@ def find_nodes(NC, tree, parents):
                     if "like" in clade and shortest != "3": #if like is in our clade and our shortest isn't 3, we're going to skip it
                         skip = True #this one is unique because 3 has a 3-like that we want to catch just because of the way our tree is, if you use a different tree
                                     #then this can be changed
-                    
+
                     elif shortest[0] == '2.2': #if our shortest is 2.2
                         if '2.2' not in clade[0:3] and '2.3' not in clade: #if 2.2 or 2.3 are not in our clade
                             skip = True #we skip. This is because 2.2 gives rise to all 2.2's and some 2.3's so we want to catch all of those
                             #the rest of this code is just the same as the logic above but unique clades for each one
 
                     elif shortest[0] == '6':
-                        if '6' not in clade[0:3] and '7' not in clade[0]: 
+                        if '6' not in clade[0:3] and '7' not in clade[0]:
                             skip = True
 
                     elif shortest[0] == '2.1.2':
@@ -170,7 +186,7 @@ def find_nodes(NC, tree, parents):
                     elif shortest[0] == '3':
                         if '4' not in clade[0] and '3' not in clade[0]:
                             skip = True
-            
+
                     elif shortest[0] not in clade[0:shortest[-1]]:
                         skip = True
 
@@ -189,7 +205,7 @@ def find_nodes(NC, tree, parents):
                         output[shortest[0]] = node
     #so here we have a clade that only has a single leaf on our tree, so we're just going to grab that strain name and set that as our clade-defining leaf instead of a node
     outliers = {"A/chicken/Indonesia/D10014/2010": '2.1.3.2b'}
-    ####for different trees, this could be changed 
+    ####for different trees, this could be changed
     return output, outliers
 
 """
@@ -201,8 +217,8 @@ Will also append outliers with 'strain' = ['mutation', 'mutation', ...]
 """
 def node_HA_muts(Tree, nf, outliers):
     node_HAmuts = {} #initialize our variable
-    
-    for object in Tree.Objects: 
+
+    for object in Tree.Objects:
         if object.branchType == "node":
             mutations = object.traits["branch_attrs"]["mutations"] #grabbing our mutations so we don't have to write this out later
             name = object.traits["name"] #grabbing the name of our node
@@ -232,7 +248,7 @@ Will also append outliers with 'strain' = ['mutation', 'mutation', ...]
 def node_nuc_muts(Tree, nf, outliers):
     node_nucmuts = {}
     #this is the same code as node_HA_muts so I'm no going to go through it as thoroughly
-    
+
     for object in Tree.Objects:
         if object.branchType == "node":
             mutations = object.traits["branch_attrs"]["mutations"] #set varaible for later
@@ -289,7 +305,7 @@ def file_writer(HA, nuc, output_file_path, relationships):
 
 
 #get our clades and leafclades
-allClades, leafClades = mf.leaf_clades(mytree, exclude_list)
+allClades, leafClades = mf.leaf_clades(mytree, exclude_list, clade_column_name)
 
 #getting our list of clades for each node, also getting our unclean nodes which is not essential right now but may be helpful when
 #defining a function to ignore misassigned tips at some point
@@ -309,7 +325,3 @@ unique_HA, unique_Nuc = mf.unique_muts(HA, nuc)
 
 #this will write our tsv
 file_writer(unique_HA, unique_Nuc, output_file_path, relationships)
-
-
-
-

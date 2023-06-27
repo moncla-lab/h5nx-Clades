@@ -10,35 +10,32 @@ The input_tree_path can be changed to whatever you need and the overarching clad
 import re
 import baltic as bt
 
-Input_Tree_Path = "Data/flu_avian_h5nxLABEL2-3-4-4Anottated_ha.json"
-mytree, mymeta = bt.loadJSON(Input_Tree_Path)
 parent_clades = ["Am_nonGsGD", "EA_nonGsGD", "0", "1", "2.1", "2.2", "2.3.1/2", "2.3.3/4", "3", "4", "5", "6", "7", "8", "9", "1-8-9-like", "2-like"]
-output_file_path = "Output/defining_clades_LABEL.txt"
 exclude_list = []
 
 
 """
 Here we want to get all the clades that are present in our tree and assign the leaves to them
-This function takes the tree as an input variable and returns a list of all clades found in the 
+This function takes the tree as an input variable and returns a list of all clades found in the
 tree along with a dictionary that looks like the following:
 
 LeafClades = {'leaf_name': 'clade', 'leaf_name': 'clade', ...}
 """
-def leaf_clades(Tree, exclude):
+def leaf_clades(Tree, exclude, clade_column_name):
     cladesAll = [] #the list of all clades present in the tree
-    LeafClades = {} #the dictionary which will pair leaves to their clades 
+    LeafClades = {} #the dictionary which will pair leaves to their clades
 
     for item in Tree.Objects: #for each item
         if item.branchType == "leaf": #if the item is a leaf
             if item.traits["name"] not in exclude:
-                if "h5_label_clade" in item.traits.keys():
-                    clade = item.traits["h5_label_clade"] #variable clade is being set to the leaf's clade
+                if clade_column_name in item.traits.keys():
+                    clade = item.traits[clade_column_name] #variable clade is being set to the leaf's clade
                     if clade != 'UNRECOGNIZABLE':
                         LeafClades[item.traits["name"]] = clade #here we are writing the LeafClades dictionary, setting the leaf name to the key and the clade to the value
                                                             #this will make a dictionary where both the key and the value are strings
                     if clade not in cladesAll and clade != "UNRECOGNIZABLE": #making sure the clade does not already appear in our complete list of clades -- we only want each clade to show up once
                         cladesAll.append(clade) #if it doesn't already show up, add it
-    
+
 
     return cladesAll, LeafClades
 
@@ -55,7 +52,7 @@ It will only return 1 of each clade found in that node's children. No duplicates
 """
 def node_clades(treeJSON, leaf_clades):
     node_clade = {} #initializing the variable, just like usual
-    for k in treeJSON.Objects: 
+    for k in treeJSON.Objects:
         if k.branchType == "node": #here we are going to run through each node
             name = k.traits["name"] #grab the node name as a string
             node_clade[name] = [] #initialize the dictionary
@@ -75,7 +72,7 @@ def node_clades(treeJSON, leaf_clades):
     return clean_nodes, node_clade
 
 """
-Here we are going to output all of the nucleotide mutations found in our nodes, 
+Here we are going to output all of the nucleotide mutations found in our nodes,
 given our hierarchical list of clades, our tree, and our list of clades that we assigned to our nodes earlier
 
 this function will output a dictionary that looks like this:
@@ -98,7 +95,7 @@ def node_nuc_muts(hList, Tree, node_clades):
 
                     if fClade not in node_nMuts.keys(): #if we don't already have that clade, add it and the mutations
                         node_nMuts[fClade] = object.traits["branch_attrs"]["mutations"]["nuc"]
-                
+
                     else: #if we do already have that clade, simply append the mutation list we already have
                         node_nMuts[fClade].append(object.traits["branch_attrs"]["mutations"]["nuc"])
 
@@ -106,7 +103,7 @@ def node_nuc_muts(hList, Tree, node_clades):
     return node_nMuts
 
 """
-Here we are going to output all of the HA mutations found in our nodes, 
+Here we are going to output all of the HA mutations found in our nodes,
 given our hierarchical list of clades, our tree, and our list of clades that we assigned to our nodes earlier
 
 this function will output a dictionary that looks like this:
@@ -127,7 +124,7 @@ def node_HA_muts(hList, Tree, node_clades):
 
                     if fClade not in node_HAMuts.keys(): #adding the mutations if we don't have the key
                         node_HAMuts[fClade] = object.traits["branch_attrs"]["mutations"]["HA"]
-                
+
                     else: #appending the mutations if we do have that key already
                         node_HAMuts[fClade].append(object.traits["branch_attrs"]["mutations"]["HA"])
 
@@ -165,7 +162,7 @@ def unique_muts(HA, nuc):
                 #assigned to false, then if it is found in any other clade it is assigned to True
                 #because we assign to false before we start going in to the check portion of the code
                 #it will only be assigned false by default when we first find the mutation, and no other time
-                
+
                 #the following is the exact same code as above but for nuc rather than HA
     for key in nuc.keys():
         unique_nuc[key] = []
