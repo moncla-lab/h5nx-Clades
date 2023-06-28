@@ -33,6 +33,9 @@ parent_list = ['2.1.3.2', '1', '1.1',
 '2.2.2', '2.3.2', '6', '2.1.3.1', '2.1.2', '2.3.4.4']
 
 """
+Clades and their parents are defined here. Each unique clade is a key, and it's value is it's parent. If the clade does not have a parent, the
+parent is labelled None. 
+
 This dictionary is important because when we are outputting our tsv file we need our clades to be able to inherit from other clades
 so this dictionary allows us to quickly output which clades descend from what without having to manually write it every time. If you find
 that your clades are related differently, simply change this code. The format is child:parent, where the parent is the clade which our child
@@ -114,12 +117,12 @@ it also outputs a list called outliers, which do not have a node to define them 
 """
 def find_nodes(NC, tree, parents):
     output = {} #initialize our variables here
-    node_length = {} #node length is going to be important later as this is how we're going to find the most ancestral node
+    node_length = {} # define a dictionary
     for item in tree.Objects: #for each item in our tree
         if item.branchType == "node": #if it's a node
-            length = len(item.leaves) #we're going to grab the list of leaves that node has and then get its length
-            node_length[item.traits["name"]] = length #here we're going to make a dictionary where we can grab the length of our node at a later date
-                                                        #since the node will be the key, and the length its value
+            length = len(item.leaves) # baltic's leaves attribute outputs a list of tip names for all tips that descend from a given internal node
+            node_length[item.traits["name"]] = length # a dictionary with node names as keys and the number of leaves that descend from them as values
+            
     ####### THIS IS FOR CLADES WITH NO CHILDREN #######
     for node in NC: #for node in our list of nodes (from node_clades)
         if len(NC[node]) == 1 and NC[node][0] not in parents: #if our node only has a single clade and is not in our list of clades with children
