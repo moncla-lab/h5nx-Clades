@@ -7,7 +7,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--baltic_path', type=str, help='path to baltic.py (https://github.com/evogytis/baltic)', required=True)
+parser.add_argument('--baltic', type=str, help='path to baltic.py (https://github.com/evogytis/baltic)', required=True)
 parser.add_argument('--tree', type=str, help='path to tree json file', required=True)
 parser.add_argument('--clade_mutations', type=str, help='path to output clade defining mutations tsv file', required=True)
 parser.add_argument('--excluded_tips', type=str, help='optional path to txt file containing any tips to exclude when determining clade defining mutations', required=False)
@@ -16,7 +16,7 @@ parser.add_argument('--init_mutations', type=str, help='optional path to tsv fil
 
 args = parser.parse_args()
 
-baltic_path = args.baltic_path
+baltic = args.baltic
 tree = args.tree
 clade_mutations = args.clade_mutations
 excluded_tips = args.excluded_tips
@@ -208,7 +208,7 @@ def return_all_muts_between_lcas(starting_node, ending_node, muts = None, i = No
 
 
 # load baltic
-bt = load_module('bt', baltic_path)
+bt = load_module('bt', baltic)
 
 
 
