@@ -1,5 +1,8 @@
 {
     "schemaVersion": "1.10.0",
     "nucMutLabelMap": {},
-    "nucMutLabelMapReverse": {}
+    "nucMutLabelMapReverse": {},
+    "alignmentParams": {
+      "minMatchRate": 0.25
+    }
   }
