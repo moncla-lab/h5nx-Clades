@@ -1,0 +1,45 @@
+LOCUS       EPI1846961              1704 bp    DNA     linear   UNA 20-SEP-2023
+DEFINITION  Influenza A virus (A/Astrakhan/3212/2020(H5N8)) hemagglutinin (HA)
+            gene, complete cds.
+ACCESSION   urn.local...r0-gqqvbowt
+VERSION     urn.local...r0-gqqvbowt
+KEYWORDS    .
+SOURCE      Influenza A virus (A/Astrakhan/3212/2020(H5N8))
+  ORGANISM  Influenza A virus (A/Astrakhan/3212/2020(H5N8)).
+FEATURES             Location/Qualifiers
+     CDS             1..1704
+                     /gene="HA"
+     gene            1..1704
+                     /gene="HA"
+
+ORIGIN      
+        1 atggagaaca tagtacttct tcttgcaata gttagccttg ttaaaagtga tcagatttgc
+       61 attggttatc atgcaaacaa ttcgacagag caagttgaca cgataatgga aaagaacgtc
+      121 actgttacac atgcccaaga catactggaa aaaacacaca acgggaagct ctgtgatcta
+      181 aatggggtga agcctctgat tttaaaggat tgtagtgtag ctggatggct cctcggaaac
+      241 ccaatgtgcg acgaattcat cagagtgccg gaatggtcct acatagtgga gagggctaat
+      301 ccagctaatg acctctgcta cccagggagc ctcaatgact atgaagaact gaaacacctg
+      361 ttgagcagaa taaatcattt tgagaagatt ctgattatcc ccaagagttc ctggccaaac
+      421 catgaaacat cactaggggt gagcgcagct tgtccatacc agggagcgcc ctcctttttc
+      481 agaaatgtgg tgtggcttat caaaaagaac gatgcatacc caacgataaa gataagctac
+      541 aataatacca atcgggaaga tctcttgata ctgtggggga ttcatcattc caacaatgca
+      601 gaagagcaga caaatctcta taaaaaccca accacctaca tttcagttgg aacatcaact
+      661 ttaaaccaga ggttggtacc aaaaatagct actagatccc aagtaaacgg gcaacgtgga
+      721 agaatggact tcttctggac aattttaaaa ccggatgatg caatccattt cgagagtaat
+      781 ggaaatttca ttgctccaga atatgcatac aaaattgtca agaaagggga ctcaacaatt
+      841 atgaaaagtg gagtggaata tggccactgc aacaccaaat gtcaaacccc agtaggagcg
+      901 ataaattcta gtatgccatt ccacaacata catcctctca ccattgggga atgccccaaa
+      961 tacgtgaagt caaacaagtt ggtccttgcg actgggctca gaaatagtcc tctaagagaa
+     1021 aagagaagaa aaagaggcct gtttggggcg atagcagggt ttatagaggg aggatggcag
+     1081 ggaatggttg atggttggta tgggtaccac catagcaatg agcaggggag tgggtacgct
+     1141 gcagacaaag aatccaccca aaaggcaata gatggagtta ccaataaggt caactcaatc
+     1201 attgacaaaa tgaacactca atttgaggca gttggaaggg agtttaataa cttagaaagg
+     1261 aggatagaga atttgaacaa gaaaatggaa gacggattcc tagatgtctg gacctataat
+     1321 gctgaacttc tagttctcat ggaaaacgag aggactctag atttccatga ttcaaatgtc
+     1381 aagaaccttt acgacaaagt cagactacag cttagggata atgcaaagga gctgggtaac
+     1441 ggctgtttcg aattctacca caaatgcgat aatgaatgta tggaaagtgt gagaaatggg
+     1501 acgtatgact accctcagta ttcagaagaa gcaagattaa aaagagaaga aataagcgga
+     1561 gtgaaattag aatcaatagg aacttaccag atactgtcaa tttattcaac agcggcgagt
+     1621 tccctagcac tggcaatcat gatggctggt ctatctttat ggatgtgctc caatgggtcg
+     1681 ttacagtgca gaatttgcat ttaa
+//
