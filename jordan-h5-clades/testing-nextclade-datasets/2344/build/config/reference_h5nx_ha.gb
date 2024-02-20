@@ -7,6 +7,11 @@ KEYWORDS    .
 SOURCE      Influenza A virus (A/Astrakhan/3212/2020(H5N8))
   ORGANISM  Influenza A virus (A/Astrakhan/3212/2020(H5N8)).
 FEATURES             Location/Qualifiers
+     source          1..1704
+                     /organism="Influenza A virus
+                     (A/Astrakhan/3212/2020(H5N8))"
+                     /mol_type="viral cRNA"
+                     /strain="A/Astrakhan/3212/2020(H5N8)"
      CDS             1..1704
                      /gene="HA"
      gene            1..1704

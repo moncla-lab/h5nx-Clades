@@ -7,6 +7,11 @@ KEYWORDS    .
 SOURCE      
   ORGANISM  .
 FEATURES             Location/Qualifiers
+     source          1..1704
+                     /organism="Influenza A virus
+                     (A/duck/Vietnam/NCVD-1584/2012(H5N1))"
+                     /mol_type="viral cRNA"
+                     /strain="A/duck/Vietnam/NCVD-1584/2012(H5N1)"
      gene            1..1704
                      /gene="HA"
      CDS             1..1704

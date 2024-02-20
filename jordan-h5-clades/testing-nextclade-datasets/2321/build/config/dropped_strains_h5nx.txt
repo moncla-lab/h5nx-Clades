@@ -1,0 +1,4 @@
+A/environment/Changsha/213/2014 # annotated 2.3.2.1g, groups with 2.3.2.1e
+A/environment/East_Jakarta/LBM.JTT.46/2014 # annotated 2.3.2.1, falls in outgroup
+A/chicken/WestJava/VSN453/2014 # annotated 2.3.2.1, falls in outgroup
+A/muscovy_duck/Vietnam/LBM438/2013 # annotated 2.3.2.1, falls in outgroup

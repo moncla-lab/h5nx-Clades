@@ -107,8 +107,8 @@ rule filter:
     output:
         sequences = "results/filtered_{subtype}_{segment}.fasta"
     params:
-        group_by = "clade",
-        sequences_per_group = 1000,
+        group_by = "clade year",
+        sequences_per_group = 50,
         min_date = min_date,
         min_length = min_length
         #exclude_where = "host=laboratoryderived host=ferret host=unknown host=other country=? region=?"
