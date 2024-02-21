@@ -1,0 +1,60 @@
+{
+  "alignmentParams": {
+    "min_match_rate": 0.25
+  },
+  "attributes": {
+    "name": "UNKNOWN",
+    "refAccession": "UNKNOWN",
+    "refName": "UNKNOWN"
+  },
+  "compatibility": {
+    "cli": "3.0.0-alpha.0",
+    "web": "3.0.0-alpha.0"
+  },
+  "deprecated": false,
+  "experimental": true,
+  "files": {
+    "changelog": "CHANGELOG.md",
+    "genomeAnnotation": "genome_annotation.gff3",
+    "pathogenJson": "pathogen.json",
+    "readme": "README.md",
+    "reference": "reference.fasta",
+    "treeJson": "tree.json"
+  },
+  "meta": {
+    "bugs": "https://github.com/nextstrain/nextclade_data/issues",
+    "source code": "https://github.com/nextstrain/nextclade_data"
+  },
+  "qc": {
+    "frameShifts": {
+      "enabled": true
+    },
+    "missingData": {
+      "enabled": false,
+      "missingDataThreshold": 100,
+      "scoreBias": 10
+    },
+    "mixedSites": {
+      "enabled": true,
+      "mixedSitesThreshold": 4
+    },
+    "privateMutations": {
+      "cutoff": 150,
+      "enabled": true,
+      "typical": 50
+    },
+    "snpClusters": {
+      "clusterCutOff": 5,
+      "enabled": false,
+      "scoreWeight": 50,
+      "windowSize": 100
+    },
+    "stopCodons": {
+      "enabled": true
+    }
+  },
+  "schemaVersion": "3.0.0",
+  "version": {
+    "tag": "unreleased"
+  }
+}
