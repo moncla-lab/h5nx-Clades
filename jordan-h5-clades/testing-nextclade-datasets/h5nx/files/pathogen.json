@@ -3,9 +3,10 @@
     "min_match_rate": 0.25
   },
   "attributes": {
-    "name": "UNKNOWN",
-    "refAccession": "UNKNOWN",
-    "refName": "UNKNOWN"
+    "name": "H5Nx (all clades)",
+    "refAccession": "AF144305.1",
+    "refName": "A/Goose/Guangdong/1/96(H5N1)",
+    "experimental": true 
   },
   "compatibility": {
     "cli": "3.0.0-alpha.0",
