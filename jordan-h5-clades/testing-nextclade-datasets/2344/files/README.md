@@ -1,13 +1,13 @@
-# Nextclade dataset for "H5Nx clade 2.3.4.4"
+# H5Nx clade 2.3.4.4 dataset with A/Astrakhan/3212/2020 reference
 
 
 ## Dataset attributes
 
 | attribute            | value                                    |
 | -------------------- | ---------------------------------------- |
-| name                 | H5Nx clade 2.3.4.4 (provisional)         |
-| refName              | A/Astrakhan/3212/2020(H5N8)              |
-| refAccession         | EPI1846961                               |
+| dataset name         | H5Nx clade 2.3.4.4 (provisional)         |
+| reference strain     | A/Astrakhan/3212/2020(H5N8)              |
+| reference accession  | EPI1846961                               |
 
 
 ## Authors and contacts

@@ -1,13 +1,13 @@
-# Nextclade dataset for "H5Nx (all clades)" (/Users/jort/Desktop/clades-github/h5nx-Clades/jordan-h5-clades/testing-nextclade-datasets/h5nx/files)
+# H5Nx (all clades) dataset with A/Goose/Guangdong/1/96 reference
 
 
 ## Dataset attributes
 
 | attribute            | value                                    |
 | -------------------- | ---------------------------------------- |
-| name                 | H5Nx (all clades) (provisional)          |
-| refName              | A/Goose/Guangdong/1/96(H5N1)             |
-| refAccession         | AF144305.1                               |
+| dataset name         | H5Nx (all clades) (provisional)          |
+| reference strain     | A/Goose/Guangdong/1/96(H5N1)             |
+| reference accession  | AF144305.1                               |
 
 
 ## Authors and contacts

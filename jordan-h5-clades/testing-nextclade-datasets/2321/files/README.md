@@ -1,11 +1,11 @@
-# Nextclade dataset for "H5Nx clade 2.3.2.1"
+# H5Nx clade 2.3.2.1 dataset with A/duck/Vietnam/NCVD-1584/2012 reference
 
 
 ## Dataset attributes
 
 | attribute            | value                                    |
 | -------------------- | ---------------------------------------- |
-| name                 | H5Nx clade 2.3.2.1 (provisional)         |
+| dataset name         | H5Nx clade 2.3.2.1 (provisional)         |
 | reference strain     | A/duck/Vietnam/NCVD-1584/2012(H5N1)      |
 | reference accession  | EPI424984                                |
 
