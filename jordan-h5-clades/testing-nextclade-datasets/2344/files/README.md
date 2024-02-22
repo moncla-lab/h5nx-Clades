@@ -1,22 +1,21 @@
-# Nextclade dataset for "UNKNOWN" (/Users/jort/Desktop/clades-github/h5nx-Clades/jordan-h5-clades/testing-nextclade-datasets/2344/files)
+# Nextclade dataset for "H5Nx clade 2.3.4.4"
 
 
 ## Dataset attributes
 
 | attribute            | value                                    |
 | -------------------- | ---------------------------------------- |
-| name                 | UNKNOWN                                  |
-| refName              | UNKNOWN                                  |
-| refAccession         | UNKNOWN                                  |
+| name                 | H5Nx clade 2.3.4.4 (provisional)         |
+| refName              | A/Astrakhan/3212/2020(H5N8)              |
+| refAccession         | EPI1846961                               |
 
 
 ## Authors and contacts
 
-Source code: 
+Maintained by: [Jordan Ort](https://lmoncla.github.io/monclalab/team/JordanOrt/)
 
-Author1: 
+With the help of: [Louise Moncla](https://lmoncla.github.io/monclalab/team/LouiseMoncla/), Todd Davis, Tommy Lam, Samuel Shephard, Richard Neher
 
-Author2: 
 
 ## What is Nextclade dataset
 

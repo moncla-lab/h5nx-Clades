@@ -1,22 +1,21 @@
-# Nextclade dataset for "UNKNOWN" (/Users/jort/Desktop/clades-github/h5nx-Clades/jordan-h5-clades/testing-nextclade-datasets/2321/files)
+# Nextclade dataset for "H5Nx clade 2.3.2.1"
 
 
 ## Dataset attributes
 
 | attribute            | value                                    |
 | -------------------- | ---------------------------------------- |
-| name                 | UNKNOWN                                  |
-| refName              | UNKNOWN                                  |
-| refAccession         | UNKNOWN                                  |
+| name                 | H5Nx clade 2.3.2.1 (provisional)         |
+| reference strain     | A/duck/Vietnam/NCVD-1584/2012(H5N1)      |
+| reference accession  | EPI424984                                |
 
 
 ## Authors and contacts
 
-Source code: 
+Maintained by: [Jordan Ort](https://lmoncla.github.io/monclalab/team/JordanOrt/)
 
-Author1: 
+With the help of: [Louise Moncla](https://lmoncla.github.io/monclalab/team/LouiseMoncla/), Todd Davis, Tommy Lam, Samuel Shephard, Richard Neher
 
-Author2: 
 
 ## What is Nextclade dataset
 

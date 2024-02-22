@@ -1,22 +1,21 @@
-# Nextclade dataset for "UNKNOWN" (/Users/jort/Desktop/clades-github/h5nx-Clades/jordan-h5-clades/testing-nextclade-datasets/h5nx/files)
+# Nextclade dataset for "H5Nx (all clades)" (/Users/jort/Desktop/clades-github/h5nx-Clades/jordan-h5-clades/testing-nextclade-datasets/h5nx/files)
 
 
 ## Dataset attributes
 
 | attribute            | value                                    |
 | -------------------- | ---------------------------------------- |
-| name                 | UNKNOWN                                  |
-| refName              | UNKNOWN                                  |
-| refAccession         | UNKNOWN                                  |
+| name                 | H5Nx (all clades) (provisional)          |
+| refName              | A/Goose/Guangdong/1/96(H5N1)             |
+| refAccession         | AF144305.1                               |
 
 
 ## Authors and contacts
 
-Source code: 
+Maintained by: [Jordan Ort](https://lmoncla.github.io/monclalab/team/JordanOrt/)
 
-Author1: 
+With the help of: [Louise Moncla](https://lmoncla.github.io/monclalab/team/LouiseMoncla/), Todd Davis, Tommy Lam, Samuel Shephard, Richard Neher
 
-Author2: 
 
 ## What is Nextclade dataset
 

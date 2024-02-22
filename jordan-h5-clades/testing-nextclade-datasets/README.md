@@ -12,6 +12,8 @@
   - See the [Nextclade documentation](https://docs.nextstrain.org/projects/nextclade/en/stable/user/datasets.html) for more information on each file
 <br></br>
 #### Nextclade supports direct links to datasets publicly available on Github
-To use a custom dataset, use [v2.clades.nextstrain.org/?dataset-url=_???_](https://v2.clades.nextstrain.org/?dataset-url=???) and replace _???_ with a link to the Github folder
+To use a custom dataset, use [clades.nextstrain.org/?dataset-url=_???_](https://clades.nextstrain.org/?dataset-url=???) and replace _???_ with a link to the Github folder
 
-For instance, to use the h5nx dataset, use [v2.clades.nextstrain.org/?dataset-url=https://github.com/moncla-lab/h5nx-Clades/tree/main/jordan-h5-clades/testing-nextclade-datasets/h5nx/files](https://v2.clades.nextstrain.org/?dataset-url=https://github.com/moncla-lab/h5nx-Clades/tree/main/jordan-h5-clades/testing-nextclade-datasets/h5nx/files)
+[H5Nx (all clades) Nextclade](https://clades.nextstrain.org/?dataset-url=https://github.com/moncla-lab/h5nx-Clades/tree/main/jordan-h5-clades/testing-nextclade-datasets/h5nx/files)
+[H5Nx clade 2.3.2.1](https://clades.nextstrain.org/?dataset-url=https://github.com/moncla-lab/h5nx-Clades/tree/main/jordan-h5-clades/testing-nextclade-datasets/2321/files)
+[H5Nx clade 2.3.4.4](https://clades.nextstrain.org/?dataset-url=https://github.com/moncla-lab/h5nx-Clades/tree/main/jordan-h5-clades/testing-nextclade-datasets/2344/files)
