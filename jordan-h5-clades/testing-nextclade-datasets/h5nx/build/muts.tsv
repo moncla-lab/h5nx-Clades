@@ -127,6 +127,7 @@ Am-nonGsGD	nuc	1000	C
 Am-nonGsGD	nuc	1011	A
 Am-nonGsGD	nuc	1014	A
 Am-nonGsGD	nuc	1020	A
+Am-nonGsGD	nuc	1023	A
 Am-nonGsGD	nuc	1026	C
 Am-nonGsGD	nuc	1029	A
 Am-nonGsGD	nuc	1062	C
@@ -139,6 +140,7 @@ Am-nonGsGD	nuc	1119	A
 Am-nonGsGD	nuc	1134	T
 Am-nonGsGD	nuc	1143	T
 Am-nonGsGD	nuc	1161	T
+Am-nonGsGD	nuc	1176	A
 Am-nonGsGD	nuc	1179	T
 Am-nonGsGD	nuc	1182	C
 Am-nonGsGD	nuc	1185	G
@@ -181,6 +183,7 @@ Am-nonGsGD	nuc	1503	C
 Am-nonGsGD	nuc	1515	G
 Am-nonGsGD	nuc	1521	T
 Am-nonGsGD	nuc	1542	A
+Am-nonGsGD	nuc	1554	A
 Am-nonGsGD	nuc	1555	T
 Am-nonGsGD	nuc	1563	G
 Am-nonGsGD	nuc	1579	G
@@ -942,6 +945,7 @@ Am-nonGsGD	HA	549	I
 2.2.1.1	nuc	105	A
 2.2.1.1	nuc	156	T
 2.2.1.1	nuc	289	T
+2.2.1.1	nuc	358	A
 2.2.1.1	nuc	398	G
 2.2.1.1	nuc	436	C
 2.2.1.1	nuc	487	G
@@ -958,6 +962,7 @@ Am-nonGsGD	HA	549	I
 2.2.1.1	nuc	1641	A
 2.2.1.1	nuc	1644	T
 2.2.1.1	HA	90	S
+2.2.1.1	HA	113	N
 2.2.1.1	HA	126	R
 2.2.1.1	HA	139	P
 2.2.1.1	HA	156	G
@@ -1296,7 +1301,6 @@ Am-nonGsGD	HA	549	I
 2.2.1.1a	nuc	744	A
 2.2.1.1a	nuc	893	G
 2.2.1.1a	nuc	1239	T
-2.2.1.1a	nuc	1260	G
 2.2.1.1a	nuc	1283	A
 2.2.1.1a	nuc	1443	C
 2.2.1.1a	HA	87	P

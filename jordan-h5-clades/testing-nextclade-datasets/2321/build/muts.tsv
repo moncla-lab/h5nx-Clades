@@ -21,11 +21,9 @@ clade	gene	site	alt
 2.3.2.1	HA	293	R
 2.3.2.1b	clade	2.3.2.1	
 2.3.2.1b	nuc	378	C
-2.3.2.1b	nuc	611	T
 2.3.2.1b	nuc	1110	T
 2.3.2.1b	nuc	1575	G
 2.3.2.1b	nuc	1701	C
-2.3.2.1b	HA	204	I
 2.3.2.1a	clade	2.3.2.1	
 2.3.2.1a	nuc	444	T
 2.3.2.1a	nuc	1275	G
@@ -38,8 +36,13 @@ clade	gene	site	alt
 2.3.2.1c-like	clade	2.3.2.1c	
 2.3.2.1c-like	nuc	582	C
 2.3.2.1d	clade	2.3.2.1c-like	
+2.3.2.1d	nuc	66	A
+2.3.2.1d	nuc	171	T
+2.3.2.1d	nuc	433	A
+2.3.2.1d	nuc	489	A
+2.3.2.1d	nuc	508	A
+2.3.2.1d	nuc	511	G
 2.3.2.1d	nuc	598	A
-2.3.2.1d	nuc	609	A
 2.3.2.1d	nuc	611	T
 2.3.2.1d	nuc	614	A
 2.3.2.1d	nuc	892	G
@@ -48,6 +51,9 @@ clade	gene	site	alt
 2.3.2.1d	nuc	1350	A
 2.3.2.1d	nuc	1357	T
 2.3.2.1d	nuc	1437	C
+2.3.2.1d	HA	145	M
+2.3.2.1d	HA	170	N
+2.3.2.1d	HA	171	D
 2.3.2.1d	HA	200	K
 2.3.2.1d	HA	204	I
 2.3.2.1d	HA	205	K
@@ -67,5 +73,6 @@ clade	gene	site	alt
 2.3.2.1g	nuc	1402	C
 2.3.2.1e	clade	2.3.2.1c-like	
 2.3.2.1e	nuc	621	C
+2.3.2.1e	nuc	825	G
 2.3.2.1e	nuc	891	A
 2.3.2.1e	nuc	1402	C
