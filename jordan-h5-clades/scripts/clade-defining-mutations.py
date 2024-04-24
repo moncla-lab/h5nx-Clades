@@ -60,7 +60,8 @@ def bt_read_in_tree_json(input_tree):
     
     with open(input_tree) as json_file:
         json_tree = json.load(json_file)
-    json_translation = {'absoluteTime':lambda k: k.traits['node_attrs']['num_date']['value'],'name':'name'} ## allows baltic to find correct attributes in JSON, height and name are required at a minimum
+    # json_translation = {'absoluteTime':lambda k: k.traits['node_attrs']['num_date']['value'],'name':'name'} ## allows baltic to find correct attributes in JSON, height and name are required at a minimum
+    json_translation = {'length':lambda k: k.traits['node_attrs']['div'],'name':'name'} ## allows baltic to find correct attributes in JSON, height and name are required at a minimum
     bt_tree, meta = bt.loadJSON(json_tree, json_translation)
     return json_tree, bt_tree
 
