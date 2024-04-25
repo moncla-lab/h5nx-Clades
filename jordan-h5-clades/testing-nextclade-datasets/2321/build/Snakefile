@@ -197,7 +197,7 @@ rule refine:
         metadata = rules.parse.output.metadata
     output:
         tree = "results/tree_{subtype}_{segment}.nwk",
-        node_data = "results/branch-lengths_{subtype}_{segment}.json"
+        node_data = "results/branch-lengths_{subtype}_{segment}_time.json"
     params:
         coalescent = "const",
         date_inference = "marginal",
@@ -215,6 +215,19 @@ rule refine:
             --date-confidence \
             --date-inference {params.date_inference} \
             --clock-filter-iqd {params.clock_filter_iqd}
+        """
+
+rule remove_time:
+    message: "Removing time data from tree"
+    input:
+        node_data = rules.refine.output.node_data
+    output:
+        node_data = "results/branch-lengths_{subtype}_{segment}.json"
+    shell:
+        """
+        python scripts/remove-time.py \
+            --branch_lengths {input.node_data} \
+            --output_branch_lengths {output.node_data} \
         """
 
 rule ancestral:
@@ -300,7 +313,7 @@ rule export:
     input:
         tree = rules.refine.output.tree,
         metadata = rules.parse.output.metadata,
-        node_data = [rules.refine.output.node_data,rules.traits.output.node_data,rules.ancestral.output.node_data,rules.translate.output.node_data,rules.cleavage_site.output.cleavage_site_annotations,rules.cleavage_site.output.cleavage_site_sequences],
+        node_data = [rules.remove_time.output.node_data,rules.traits.output.node_data,rules.ancestral.output.node_data,rules.translate.output.node_data,rules.cleavage_site.output.cleavage_site_annotations,rules.cleavage_site.output.cleavage_site_sequences],
         colors = files.colors,
         lat_longs = files.lat_longs,
         auspice_config = files.auspice_config
@@ -372,7 +385,7 @@ rule root_muts:
         nuc_mutations = "results/aa-muts_{subtype}_{segment}_rootupdated.json",
         aa_mutations = "results/nt-muts_{subtype}_{segment}_rootupdated.json"
     params:
-        reference = "A/duck/Vietnam/NCVD-1584/2012",
+        reference = "A/Goose/Guangdong/1/96",
         genes = "HA"
     shell:
         """
@@ -392,7 +405,7 @@ rule export2:
     input:
         tree = rules.refine.output.tree,
         metadata = rules.parse.output.metadata,
-        node_data = [rules.refine.output.node_data,rules.traits.output.node_data,rules.root_muts.output.nuc_mutations,rules.root_muts.output.aa_mutations,rules.cleavage_site.output.cleavage_site_annotations,rules.cleavage_site.output.cleavage_site_sequences, rules.augur_clades.output.clade_assignments],
+        node_data = [rules.remove_time.output.node_data,rules.traits.output.node_data,rules.root_muts.output.nuc_mutations,rules.root_muts.output.aa_mutations,rules.cleavage_site.output.cleavage_site_annotations,rules.cleavage_site.output.cleavage_site_sequences, rules.augur_clades.output.clade_assignments],
         colors = files.colors,
         lat_longs = files.lat_longs,
         auspice_config = files.auspice_config

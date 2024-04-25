@@ -32,6 +32,8 @@ clade	gene	site	alt
 2.3.4.4c	nuc	636	T
 2.3.4.4c	nuc	858	G
 2.3.4.4c	nuc	912	C
+2.3.4.4c	nuc	1022	G
+2.3.4.4c	nuc	1023	A
 2.3.4.4c	nuc	1092	C
 2.3.4.4c	nuc	1197	A
 2.3.4.4c	nuc	1330	T
@@ -51,7 +53,6 @@ clade	gene	site	alt
 2.3.4.4g	nuc	681	C
 2.3.4.4g	nuc	840	C
 2.3.4.4g	nuc	1020	G
-2.3.4.4g	nuc	1022	G
 2.3.4.4g	nuc	1209	G
 2.3.4.4g	HA	102	S
 2.3.4.4f	clade	2.3.4.4-like	
