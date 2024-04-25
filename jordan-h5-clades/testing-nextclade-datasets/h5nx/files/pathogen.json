@@ -25,7 +25,8 @@
     "pathogenJson": "pathogen.json",
     "readme": "README.md",
     "reference": "reference.fasta",
-    "treeJson": "tree.json"
+    "treeJson": "tree.json",
+    "examples": "example_sequences.fasta"
   },
   "meta": {
     "bugs": "https://github.com/nextstrain/nextclade_data/issues",

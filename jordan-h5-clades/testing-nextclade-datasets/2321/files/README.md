@@ -23,7 +23,7 @@ This dataset supports
  * Sequence QC
  * Phylogenetic placement
 
-## Clades of seasonal influenza viruses
+## Clades of H5Nx avian influenza viruses
 
 The WHO/FAO/WOAH H5 Nomenclature Working Group define "clades" as genetically divergent groups of viruses, based on their HA gene segment.
 Viruses falling into a given clade share a common ancestor with significant bootstrap support and have low levels of within-clade diversity.
