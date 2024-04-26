@@ -1,7 +1,7 @@
 {
-  "title": "Real-time tracking of influenza A/H5NX virus evolution",
+  "title": "Influenza A/H5Nx Nextclade tree for 2.3.2.1 viruses",
   "maintainers": [
-    {"name": "Louise Moncla", "url": "http://bedford.io/team/louise-moncla/"}
+    {"name": "Jordan Ort", "url": "https://lmoncla.github.io/monclalab/team/JordanOrt/"}
   ],
   "build_url": "https://github.com/nextstrain/avian-flu",
   "colorings": [
@@ -22,12 +22,12 @@
     },
     {
       "key": "clade",
-      "title": "H5 clade",
+      "title": "Reference H5 clade",
       "type": "categorical"
     },
     {
       "key": "clade_membership",
-      "title": "clade-augur clades",
+      "title": "H5 clade",
       "type": "categorical"
     },
     {
