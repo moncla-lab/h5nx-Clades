@@ -23,6 +23,7 @@ This dataset supports
  * Assignment to clades and subclades based on the provisional nomenclature defined by the WHO/FAO/WOAH H5 Nomenclature Working Group
  * Sequence quality control (QC)
  * Phylogenetic placement
+ * Annotations for glycosylation sties, HA cleavage site sequence, and presence/absence of a polybasic cleavage site
 
 ## Clades of H5Nx avian influenza viruses
 
