@@ -46,9 +46,9 @@
       "mixedSitesThreshold": 4
     },
     "privateMutations": {
-      "cutoff": 150,
+      "cutoff": 95,
       "enabled": true,
-      "typical": 50
+      "typical": 19
     },
     "snpClusters": {
       "clusterCutOff": 5,
