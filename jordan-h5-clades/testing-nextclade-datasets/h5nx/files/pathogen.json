@@ -4,7 +4,7 @@
     "terminalBandwidth": 100,
     "allowedMismatches": 4,
     "gapAlignmentSide": "right",
-    "minSeedCover": 0.1
+    "minSeedCover": 0.05
   },
   "attributes": {
     "name": "H5Nx (all clades)",
